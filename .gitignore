@@ -1,0 +1,5 @@
+application/node_modules
+application/vendor
+application/.env
+db-data
+logs
