@@ -10,7 +10,7 @@
 <?php $component->withAttributes([]); ?>
      <?php $__env->slot('header', null, []); ?> 
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            <?php echo e(__('Editar Jogador')); ?>
+            <?php echo e(__('Adicionar Jogador')); ?>
 
         </h2>
      <?php $__env->endSlot(); ?>
@@ -19,15 +19,15 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <form action="<?php echo e(route('player.update', $player->id)); ?>" method="POST">
+                    <form action="<?php echo e(route('player.store')); ?>" method="POST">
                         <?php echo csrf_field(); ?>
-                        <?php echo method_field('PUT'); ?>
+                        <?php echo method_field('POST'); ?>
 
                         <div class="mb-4">
                             <label for="name" class="block text-sm font-medium text-gray-700">
                                 Nome
                             </label>
-                            <input type="text" name="name" id="name" value="<?php echo e(old('name', $player->name)); ?>"
+                            <input type="text" name="name" id="name"
                                 class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                         </div>
 
@@ -35,7 +35,7 @@
                             <label for="level" class="block text-sm font-medium text-gray-700">
                                 Nível <span class="text-gray-500"><i>(1 - 5)</i></span>
                             </label>
-                            <input type="number" name="level" id="level" value="<?php echo e(old('level', $player->level)); ?>"
+                            <input type="number" name="level" id="level"
                                 class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" max="5" min="1">
                         </div>
 
@@ -45,8 +45,8 @@
                             </label>
                             <select name="is_goalkeeper" id="is_goalkeeper"
                                 class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                <option value="1" <?php echo e(old('is_goalkeeper', $player->is_goalkeeper) == 1 ? 'selected' : ''); ?>>Sim</option>
-                                <option value="0" <?php echo e(old('is_goalkeeper', $player->is_goalkeeper) == 0 ? 'selected' : ''); ?>>Não</option>
+                                <option value="1">Sim</option>
+                                <option value="0">Não</option>
                             </select>
                         </div>
 
@@ -67,7 +67,7 @@
                             <button type="submit"
                                 style="background: #0A2463;"
                                 class="text-white font-bold py-2 px-4 rounded">
-                                Salvar
+                                Criar
                             </button>
                         </div>
                     </form>
@@ -95,4 +95,4 @@
 <?php $component = $__componentOriginal9ac128a9029c0e4701924bd2d73d7f54; ?>
 <?php unset($__componentOriginal9ac128a9029c0e4701924bd2d73d7f54); ?>
 <?php endif; ?>
-<?php /**PATH /var/www/html/resources/views/players/edit.blade.php ENDPATH**/ ?>
+<?php /**PATH /var/www/html/resources/views/players/create.blade.php ENDPATH**/ ?>
