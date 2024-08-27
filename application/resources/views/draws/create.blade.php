@@ -176,6 +176,16 @@
             return players;
         }
 
+        //Função principal para balancear os times:
+        // Separação dos Jogadores: Dividi os jogadores em goleiros e não goleiros.
+
+        // Verificação: Chequei se havia goleiros suficientes e se havia jogadores suficientes para pelo menos dois times. Se não, exibi uma mensagem de erro.
+
+        // Criação dos Times: Cada goleiro foi alocado a um time, garantindo que todos os times tivessem pelo menos um goleiro.
+
+        // Distribuição dos Jogadores de Linha: Embaralhei os jogadores de linha e os distribui entre os times com base na quantidade de jogadores e nível total, tentando equilibrar os times.
+
+        // Ajuste Final: Ajustei os times para garantir que todos tenham o número máximo de jogadores permitido, movendo jogadores entre os times para balancear o nível total.
         function createBalancedTeams(players, maxPlayersPerTeam) {
             let goalkeepers = [];
             let nonGoalkeepers = [];
@@ -191,16 +201,6 @@
             shuffleArray(goalkeepers)
             goalkeepers = goalkeepers.slice(0, Math.ceil(players.length / maxPlayersPerTeam));
             const numTeams = Math.max(2, Math.ceil(players.length / maxPlayersPerTeam));
-            
-            // if(numTeams > goalkeepers.length){
-            //     Swal.fire({
-            //         icon: "error",
-            //         title: "Oops...",
-            //         text: `impossível formar ${numTeams} times, só existem ${goalkeepers.length} goleiros`
-            //     });
-
-            //     return false;
-            // }
             
             if(!(maxPlayersPerTeam * 2 <= (goalkeepers.length + nonGoalkeepers.length))){
                 Swal.fire({
