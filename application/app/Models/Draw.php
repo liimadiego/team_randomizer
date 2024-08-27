@@ -5,18 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Player extends Model
+class Draw extends Model
 {
     use HasFactory;
 
+    protected $table = 'draws';
+
     protected $fillable = [
-        'name',
-        'level',
-        'is_goalkeeper'
+        'draw_date',
+        'players_per_team',
+        'total_teams',
+        'confirmed_players'
     ];
 
     public function teams()
     {
-        return $this->belongsToMany(Team::class, 'player_team');
+        return $this->hasMany(Team::class, 'draw_id');
     }
 }
