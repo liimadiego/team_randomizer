@@ -54,7 +54,6 @@ class DrawController extends Controller
     public function store(DrawRequest $request)
     {
         try{   
-
             $storedDraw = $this->drawRepository->create([
                 'players_per_team' => $request->input('players_per_team'),
                 'total_teams' => $request->input('total_teams'),
@@ -116,21 +115,7 @@ class DrawController extends Controller
      */
     public function update(DrawRequest $request, string $id)
     {
-        try{   
-            if (!$request->validated()) {
-                return back()->withInput($request->input())->withErrors(new MessageBag(['Dados inválidos, tente novamente!']));
-            }
-
-            $this->drawRepository->updateById([
-                'name' => $request->input('name'),
-                'is_goalkeeper' => $request->input('is_goalkeeper'),
-                'level' => $request->input('level')
-            ], $id);
-            
-            return redirect()->route('draw.index');
-        } catch (\Exception $ex) {
-            return redirect()->back()->withInput($request->all())->withErrors(new MessageBag([$ex->getMessage()]));
-        }
+       //
     }
 
     /**
@@ -146,18 +131,6 @@ class DrawController extends Controller
      */
     public function delete(string $id)
     {
-        try{   
-            $data = $this->drawRepository->destroy($id);
-
-            return response()->json([
-                'result' => true,
-                'messages' => 'Excluido com sucesso!',
-            ]);
-        } catch (Exception $ex){
-            return response()->json([
-                'result' => false,
-                'messages' => $e->getMessage()
-            ]);
-        }
+        //   
     }
 }

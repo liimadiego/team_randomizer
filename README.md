@@ -12,11 +12,15 @@ Construa e inicie os containers Docker: ~ docker-compose up --build
 
 Copie o arquivo .env.example para .env com o comando: ~ docker-compose exec php cp .env.example .env
 
+Copie o arquivo .env para .env.testing com o comando: ~ docker-compose exec php cp .env .env.testing
+
 Instale as dependências do Composer: ~ docker-compose exec php composer install
 
 Gere a chave de aplicação do Laravel: ~ docker-compose exec php php artisan key:generate
 
 Execute as migrações e o seed do banco de dados: ~ docker-compose exec php php artisan migrate --seed
+
+Execute as migrações do banco de dados de teste: ~ docker-compose exec php php artisan migrate --env=testing
 
 Instale as dependências do NPM: ~ docker-compose exec php npm install
 

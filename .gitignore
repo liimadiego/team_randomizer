@@ -3,4 +3,8 @@ application/vendor
 application/.env
 db-data
 logs
+<<<<<<< HEAD
 application/storage/
+=======
+application/storage/
+>>>>>>> b6438a9c3565d7d06792bc5c86cccbec05302ea3
