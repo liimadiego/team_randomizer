@@ -3,3 +3,4 @@ application/vendor
 application/.env
 db-data
 logs
+application/storage/
