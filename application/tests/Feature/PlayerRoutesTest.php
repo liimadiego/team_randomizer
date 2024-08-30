@@ -20,9 +20,9 @@ class PlayerRoutesTest extends TestCase
     {
         parent::setUp();
 
-        $this->artisan('db:seed');
+        $this->artisan('migrate:refresh', ['--database' => 'mysql_testing']);
+        $this->artisan('db:seed', ['--database' => 'mysql_testing']);
 
-        $faker = Faker::create();
         $this->user = User::create([
             'email' => fake()->unique()->safeEmail(),
             'password' => Hash::make('password'),

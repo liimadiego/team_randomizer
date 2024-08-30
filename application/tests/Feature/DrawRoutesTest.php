@@ -20,7 +20,8 @@ class DrawRoutesTest extends TestCase
     {
         parent::setUp();
 
-        $this->artisan('db:seed');
+        $this->artisan('migrate:refresh', ['--database' => 'mysql_testing']);
+        $this->artisan('db:seed', ['--database' => 'mysql_testing']);
 
         $faker = Faker::create();
         $this->user = User::create([
@@ -76,5 +77,9 @@ class DrawRoutesTest extends TestCase
             'messages' => 'Salvo com sucesso!',
             'id' => 1
         ]);
+    }
+
+    public function tear_down(): void
+    {
     }
 }
