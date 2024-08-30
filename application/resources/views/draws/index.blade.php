@@ -69,6 +69,10 @@
                                         <button class="text-red-500 hover:text-red-700" onclick="deletePlayer({{ $draw->id }}, '{{ $draw->name }}')">
                                             <i class="fas fa-trash" style="color:#D8315B"></i>
                                         </button>
+                                        <!-- botao de olho para visualizar -->
+                                        <a href="{{ route('draw.show', ['draw' => $draw->id]) }}">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach
